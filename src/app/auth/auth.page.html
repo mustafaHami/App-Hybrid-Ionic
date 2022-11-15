@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Authentification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Sign in</ion-card-title>
+            </ion-card-header>
+          <div>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <ion-item>
+                <ion-label position="floating">
+                  Login
+                </ion-label>
+                <ion-input type="text" ngModel name="login" required login #loginCtrl="ngModel"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Mot de Passe</ion-label>
+                <ion-input type="password" ngModel name="password" required minlength="6"#passwordCtrl="ngModel">
+                </ion-input>
+              </ion-item>
+              <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">
+                <ion-label> Au moins 6 caractères. </ion-label>
+              </ion-item>
+              <ion-row>
+                <ion-col >
+                  <ion-button type="submit" color="primary" expand="block"
+                  [disabled]="!f.valid"
+                  >
+                  Login
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </div>
+        </ion-card>
+        </ion-col>
+        <ion-col size="12" size-sm>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Sign Up</ion-card-title>
+            </ion-card-header>
+              <div>
+              <form #f2="ngForm" (ngSubmit)="onSubmit2(f2)">
+                <ion-item>
+                  <ion-label position="floating">
+                    Login
+                  </ion-label>
+                    <ion-input type="text" ngModel name="login" required login #loginCtrl="ngModel"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input type="password" ngModel name="password" required minlength="6"#passwordCtrl="ngModel">
+                  </ion-input>
+                </ion-item>
+                <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">
+                  <ion-label> Au moins 6 caractères. </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Confirm Password</ion-label>
+                  <ion-input type="password" ngModel name="passwordconfirm" required minlength="6"#passwordconfirmCtrl="ngModel">
+                  </ion-input>
+                </ion-item>
+                <ion-row>
+                  <ion-col >
+                    <ion-button type="submit" color="primary" expand="block"
+                    [disabled]="!f2.valid"
+                    >
+                    New Person
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </form>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
